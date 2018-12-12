@@ -1,0 +1,35 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>请先登录</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding style="text-align:center">
+  <img style="width:200px;height:200px;border-radius:100%;" src="../../assets/imgs/1.JPG" />
+  <ion-list>
+    <ion-item>
+      <ion-input placeholder="请输入用户名" [(ngModel)]="uName"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="password" placeholder="请输入密码" [(ngModel)]="uPwd"></ion-input>
+    </ion-item>
+  </ion-list>
+  <ion-grid>
+    <ion-row>
+      <ion-col style="text-align:left">
+        <button ion-button color="dark" clear>
+          免费注册
+        </button>
+      </ion-col>
+      <ion-col style="text-align:right">
+        <button ion-button color="dark" clear>
+          忘记密码
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <button (click)="handleclick()" ion-button color="danger" block round>登录</button>
+</ion-content>

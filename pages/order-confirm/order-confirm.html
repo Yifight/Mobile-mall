@@ -1,0 +1,30 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>确认订单</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <!-- 缩略图列表 -->
+  <ion-list>
+    <ion-item >
+      <ion-thumbnail item-start>
+        <ion-icon name="pin"></ion-icon>
+      </ion-thumbnail>
+      <h4>收货人：john</h4>
+      <p>收货地址：杭州</p>
+    </ion-item>
+    <ion-item text-wrap *ngFor="let tmp of list">
+      <ion-thumbnail item-start>
+        <img [src]="'http://localhost/framework/2_ionic/forStu/ajia_code/'+tmp.pic" />
+      </ion-thumbnail>
+      <h3>{{tmp.title}}</h3>
+      <h5>{{tmp.subtitle}}</h5>
+      <p style="color:red">{{tmp.price+"x"+tmp.count}}</p>
+    </ion-item>
+  </ion-list>
+  <button (click)="showModal()" ion-button color="secondary" block round>在线支付</button>
+</ion-content>

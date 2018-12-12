@@ -1,0 +1,44 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>index</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <!-- 轮播图 -->
+  <ion-slides *ngIf="myData.carouselItems" autoplay=2000 loop=true pager=true style="height:200px">
+    <ion-slide *ngFor="let tmp of myData.carouselItems">
+      <img [src]="'http://localhost/framework/2_ionic/forStu/ajia_code/'+tmp.img" />
+    </ion-slide>
+  </ion-slides>
+
+  <!-- 支持横向滚动的容器 -->
+  <ion-scroll scrollX=true *ngIf="myData.newArrivalItems" style="height:300px;white-space:nowrap">
+    <ion-card *ngFor="let tmp of myData.newArrivalItems" style="display:inline-block">
+      <ion-card-header>
+        <img style="height:180px" [src]="'http://localhost/framework/2_ionic/forStu/ajia_code/'+tmp.pic" />
+      </ion-card-header>
+      <ion-card-content>
+        {{tmp.title}}
+      </ion-card-content>
+    </ion-card>
+  </ion-scroll>
+
+  <!-- 缩略图列表 -->
+  <ion-list>
+    <ion-item [navPush]="detail" [navParams]="{id:tmp.pid}" text-wrap *ngFor="let tmp of myData.recommendedItems">
+      <ion-thumbnail item-start>
+        <img [src]="'http://localhost/framework/2_ionic/forStu/ajia_code/'+tmp.pic" />
+      </ion-thumbnail>
+      <h3>{{tmp.title}}</h3>
+      <p>{{tmp.details}}</p>
+      <button ion-button clear item-end>
+        <ion-icon name="cart"></ion-icon>
+      </button>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

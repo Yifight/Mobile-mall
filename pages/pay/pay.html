@@ -1,0 +1,43 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>pay</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <div style="height:50%;background-color:rgba(0,0,0,0.8)"></div>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <button ion-button clear (click)="close()">
+          <ion-icon name="close"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col style="text-align:center">
+        <h2>确认付款</h2>
+      </ion-col>
+      <ion-col style="text-align:right">
+        <button ion-button clear>
+          <ion-icon name="help"></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col style="text-align:center">
+        <h3>￥1000</h3>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>支付账号</ion-col>
+      <ion-col style="text-align:right">602801698@qq.com</ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col>付款方式</ion-col>
+        <ion-col style="text-align:right">花呗></ion-col>
+    </ion-row>
+  </ion-grid>
+  <button (click)="pay()" ion-button color="secondary" block>支付</button>
+</ion-content>

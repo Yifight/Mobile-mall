@@ -1,0 +1,62 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>购物车</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding style="text-align:center;margin-top: 5%">
+  <!-- 购物车列表为空 -->
+  <div *ngIf="myList.length == 0">
+      <img src="http://localhost/framework/2_ionic/forStu/ajia_code/img/404/404_img2.png" />
+      <h3>购物车是空的！</h3>
+      <button ion-button color="secondary" block>逛逛去</button>
+  </div>
+  <!-- 购物车列表不为空 -->
+  <ion-list>
+   <ion-item-sliding *ngFor="let tmp of myList;let myIndex=index">
+    <ion-item>
+      <ion-checkbox [(ngModel)]="tmp.isSelected" 
+      (ngModelChange)="operateOne()" item-start></ion-checkbox>
+      <ion-thumbnail item-end>
+        <ion-grid>
+          <ion-row text-wrap>
+            <ion-col col-4>
+              <img [src]="'http://localhost/framework/2_ionic/forStu/ajia_code/'+tmp.pic" />
+            </ion-col>
+            <ion-col col-8>
+              <h4 style="color:gray">{{tmp.title}}</h4>
+              <p style="color:red">CN￥{{tmp.price}}</p>
+              <button (click)="modifyCount(false,myIndex)">-</button>
+              <span>{{tmp.count}}</span>
+              <button (click)="modifyCount(true,myIndex)">+</button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-thumbnail>
+    </ion-item>
+    <ion-item-options>
+      <button ion-button color="danger" (click)="delete(myIndex)">删除</button>
+    </ion-item-options>
+   </ion-item-sliding>
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+  <ion-grid>
+    <ion-row align-items-center>
+      <ion-col col-2>
+        <ion-checkbox [(ngModel)]="isAllSelected"
+        (ngModelChange)="operateALL()"></ion-checkbox>
+      </ion-col>
+      <ion-col style="text-align: center">
+        全选 当前合计{{calcAll()}}
+      </ion-col>
+      <ion-col>
+        <button (click)="jump()" ion-button color="danger" block>去结算</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>
